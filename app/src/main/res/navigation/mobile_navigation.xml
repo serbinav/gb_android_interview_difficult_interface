@@ -12,14 +12,20 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.difficultinterface.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_class"
+        android:name="com.example.difficultinterface.ui.classes.ClassesFragment"
+        android:label="@string/title_classes"
+        tools:layout="@layout/fragment_classes" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.difficultinterface.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_list"
+        android:name="com.example.difficultinterface.ui.list.ListFragment"
+        android:label="@string/title_list"
+        tools:layout="@layout/fragment_list" />
+
+    <fragment
+        android:id="@+id/navigation_star"
+        android:name="com.example.difficultinterface.ui.star.StarFragment"
+        android:label="@string/title_star"
+        tools:layout="@layout/fragment_star" />
 </navigation>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_movies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="center" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/name_movies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            android:textColor="@color/black"
+            tools:text="Доктор Стрейнджлав, или Как я научился не волноваться и полюбил атомную бомбу (1963)" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

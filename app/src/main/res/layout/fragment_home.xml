@@ -10,23 +10,31 @@
         android:id="@+id/chronometer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:countDown="true"
+        android:format="H:MM:SS"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/classes"
+        android:id="@+id/recycler_classes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:scrollbars="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chronometer" />
+        app:layout_constraintTop_toBottomOf="@+id/chronometer"
+        tools:listitem="@layout/item_classes" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/homework"
+        android:id="@+id/recycler_homework"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:scrollbars="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/classes" />
+        app:layout_constraintTop_toBottomOf="@+id/recycler_classes"
+        tools:listitem="@layout/item_homework" />
 </androidx.constraintlayout.widget.ConstraintLayout>

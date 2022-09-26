@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black_background"
     tools:context=".ui.home.HomeFragment">
 
     <Chronometer
@@ -12,9 +13,31 @@
         android:layout_height="wrap_content"
         android:countDown="true"
         android:format="H:MM:SS"
+        android:textColor="#F8FEFD"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/header_classes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/header_classes_p1"
+        android:textColor="#C7CACD"
+        app:layout_constraintEnd_toStartOf="@+id/count_classes"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chronometer" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/count_classes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/header_classes_p2"
+        android:textColor="#5D6567"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/header_classes"
+        app:layout_constraintTop_toBottomOf="@+id/chronometer" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_classes"
@@ -24,8 +47,17 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chronometer"
+        app:layout_constraintTop_toBottomOf="@+id/header_classes"
         tools:listitem="@layout/item_classes" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/header_homework"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/header_homework"
+        android:textColor="#F5F5F7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_classes" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_homework"
@@ -35,6 +67,6 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_classes"
+        app:layout_constraintTop_toBottomOf="@+id/header_homework"
         tools:listitem="@layout/item_homework" />
 </androidx.constraintlayout.widget.ConstraintLayout>

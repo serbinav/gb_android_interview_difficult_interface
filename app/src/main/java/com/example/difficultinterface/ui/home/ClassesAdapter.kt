@@ -11,7 +11,7 @@ import com.example.difficultinterface.model.ClassesData
 
 class ClassesAdapter(
     private val onItemClick: () -> Unit
-) : ListAdapter<ClassesData, ClassesAdapter.ClassesViewHolder>(NoteItemCallback()) {
+) : ListAdapter<ClassesData, ClassesAdapter.ClassesViewHolder>(ClassesItemCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClassesViewHolder {
         val binding =
@@ -39,7 +39,7 @@ class ClassesAdapter(
     }
 }
 
-class NoteItemCallback : DiffUtil.ItemCallback<ClassesData>() {
+class ClassesItemCallback : DiffUtil.ItemCallback<ClassesData>() {
     override fun areItemsTheSame(oldItem: ClassesData, newItem: ClassesData): Boolean {
         return oldItem.name == newItem.name && oldItem.time == newItem.time
     }

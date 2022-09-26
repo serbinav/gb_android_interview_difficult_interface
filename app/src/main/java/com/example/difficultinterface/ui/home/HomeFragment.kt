@@ -18,10 +18,13 @@ class HomeFragment : Fragment() {
     private val viewModel by lazy {
         ViewModelProvider(this).get(HomeViewModel::class.java)
     }
-    private val adapter: ClassesAdapter by lazy {
+    private val adapterClasses: ClassesAdapter by lazy {
         ClassesAdapter {
             Toast.makeText(requireContext(), "OPEN SKYPE", Toast.LENGTH_LONG).show()
         }
+    }
+    private val adapterHomework: HomeworkAdapter by lazy {
+        HomeworkAdapter()
     }
 
     override fun onCreateView(
@@ -30,8 +33,14 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        binding.recyclerClasses.adapter = adapter
+        binding.recyclerClasses.adapter = adapterClasses
         binding.recyclerClasses.layoutManager = LinearLayoutManager(
+            requireContext(),
+            LinearLayoutManager.HORIZONTAL,
+            false
+        )
+        binding.recyclerHomework.adapter = adapterHomework
+        binding.recyclerHomework.layoutManager = LinearLayoutManager(
             requireContext(),
             LinearLayoutManager.HORIZONTAL,
             false
@@ -44,7 +53,8 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.data.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
+            adapterClasses.submitList(it.classes)
+            adapterHomework.setData(it.homework)
         }
     }
 

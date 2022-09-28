@@ -7,16 +7,45 @@
     android:background="@color/black_background"
     tools:context=".ui.home.HomeFragment">
 
-    <Chronometer
-        android:id="@+id/chronometer"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/chronometer_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:countDown="true"
-        android:format="H:MM:SS"
-        android:textColor="#F8FEFD"
+        android:background="@drawable/green_rounded_corners_border"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/header_chronometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/header_chronometer"
+            android:textColor="#F8FEFD"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/chronometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F8FEFD"
+            android:textSize="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header_chronometer" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/body_chronometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/body_chronometer"
+            android:textColor="#F8FEFD"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chronometer" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/header_classes"
@@ -27,7 +56,7 @@
         app:layout_constraintEnd_toStartOf="@+id/count_classes"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chronometer" />
+        app:layout_constraintTop_toBottomOf="@+id/chronometer_layout" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/count_classes"
@@ -37,7 +66,7 @@
         android:textColor="#5D6567"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/header_classes"
-        app:layout_constraintTop_toBottomOf="@+id/chronometer" />
+        app:layout_constraintTop_toBottomOf="@+id/chronometer_layout" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_classes"

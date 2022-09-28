@@ -1,6 +1,7 @@
 package com.example.difficultinterface.ui.home
 
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.difficultinterface.databinding.FragmentHomeBinding
+import java.text.SimpleDateFormat
 
 class HomeFragment : Fragment() {
 
@@ -55,6 +57,21 @@ class HomeFragment : Fragment() {
         viewModel.data.observe(viewLifecycleOwner) {
             adapterClasses.submitList(it.classes)
             adapterHomework.setData(it.homework)
+        }
+
+        with(binding) {
+            object : CountDownTimer(9*24*60*60*1000, 1000) {
+
+                override fun onTick(millisUntilFinished: Long) {
+                    val fmt = SimpleDateFormat("dd : HH : mm")
+                    val formatted: String = fmt.format(millisUntilFinished)
+                    chronometer.text = formatted
+                }
+
+                override fun onFinish() {
+                    chronometer.text = "Good luck!"
+                }
+            }.start()
         }
     }
 

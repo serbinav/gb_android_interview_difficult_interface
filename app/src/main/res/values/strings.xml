@@ -9,5 +9,7 @@
     <string name="header_classes_p2">6 classes today</string>
     <string name="header_homework">Homework</string>
     <string name="header_chronometer">Are you ready for exams?</string>
-    <string name="body_chronometer">Days Hours Minutes</string>
+    <string name="countdown_timer_days">Days</string>
+    <string name="countdown_timer_hours">Hours</string>
+    <string name="countdown_timer_minutes">Minutes</string>
 </resources>

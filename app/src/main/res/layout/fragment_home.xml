@@ -8,7 +8,7 @@
     tools:context=".ui.home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/chronometer_layout"
+        android:id="@+id/countdown_timer_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/green_rounded_corners_border"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/header_chronometer"
+            android:id="@+id/countdown_timer_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/header_chronometer"
@@ -27,24 +27,74 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/chronometer"
+            android:id="@+id/countdown_timer_days"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#F8FEFD"
-            android:textSize="32dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/header_chronometer" />
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_days"
+            app:layout_constraintTop_toBottomOf="@+id/countdown_timer_header" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/body_chronometer"
+            android:id="@+id/countdown_timer_days_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/body_chronometer"
+            android:text="@string/countdown_timer_days"
             android:textColor="#F8FEFD"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chronometer" />
+            app:layout_constraintEnd_toEndOf="@+id/guideline_days"
+            app:layout_constraintTop_toBottomOf="@+id/countdown_timer_days" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_days"
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.35" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/countdown_timer_hours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F8FEFD"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_hours"
+            app:layout_constraintStart_toStartOf="@+id/guideline_days"
+            app:layout_constraintTop_toBottomOf="@+id/countdown_timer_header" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/countdown_timer_hours_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/countdown_timer_hours"
+            android:textColor="#F8FEFD"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_hours"
+            app:layout_constraintStart_toStartOf="@+id/guideline_days"
+            app:layout_constraintTop_toBottomOf="@+id/countdown_timer_hours" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_hours"
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.65" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/countdown_timer_minutes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F8FEFD"
+            android:textSize="32sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline_hours"
+            app:layout_constraintTop_toBottomOf="@+id/countdown_timer_header" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/countdown_timer_minutes_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/countdown_timer_minutes"
+            android:textColor="#F8FEFD"
+            app:layout_constraintStart_toStartOf="@+id/guideline_hours"
+            app:layout_constraintTop_toBottomOf="@+id/countdown_timer_minutes" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -56,7 +106,7 @@
         app:layout_constraintEnd_toStartOf="@+id/count_classes"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chronometer_layout" />
+        app:layout_constraintTop_toBottomOf="@+id/countdown_timer_layout" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/count_classes"
@@ -66,7 +116,7 @@
         android:textColor="#5D6567"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/header_classes"
-        app:layout_constraintTop_toBottomOf="@+id/chronometer_layout" />
+        app:layout_constraintTop_toBottomOf="@+id/countdown_timer_layout" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_classes"

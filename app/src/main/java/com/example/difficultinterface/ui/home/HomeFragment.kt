@@ -12,10 +12,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.difficultinterface.databinding.FragmentHomeBinding
 import java.text.SimpleDateFormat
 
+private const val MILLISECOND_IN_MINUTE = 60 * 1000L
+private const val MINUTE_IN_DAYS = 9 * 24 * 60L
+
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private val sdfDays = SimpleDateFormat("dd")
+    private val sdfHours = SimpleDateFormat("HH")
+    private val sdfMinutes = SimpleDateFormat("mm")
 
     private val viewModel by lazy {
         ViewModelProvider(this).get(HomeViewModel::class.java)
@@ -60,18 +66,19 @@ class HomeFragment : Fragment() {
         }
 
         with(binding) {
-            object : CountDownTimer(9*24*60*60*1000, 1000) {
-
+            object : CountDownTimer(
+                MINUTE_IN_DAYS * MILLISECOND_IN_MINUTE,
+                MILLISECOND_IN_MINUTE
+            ) {
                 override fun onTick(millisUntilFinished: Long) {
-                    val fmt = SimpleDateFormat("dd : HH : mm")
-                    val formatted: String = fmt.format(millisUntilFinished)
-                    chronometer.text = formatted
+                    countdownTimerDays.text = sdfDays.format(millisUntilFinished)
+                    countdownTimerHours.text = sdfHours.format(millisUntilFinished)
+                    countdownTimerMinutes.text = sdfMinutes.format(millisUntilFinished)
                 }
 
-                override fun onFinish() {
-                    chronometer.text = "Good luck!"
-                }
-            }.start()
+                override fun onFinish() {}
+            }
+                .start()
         }
     }
 
